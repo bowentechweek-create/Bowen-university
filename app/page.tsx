@@ -1,65 +1,111 @@
-import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import AttendanceCount from "@/components/AttendanceCount";
+import MarqueeBanner from "@/components/MarqueeBanner";
+import AboutSection from "@/components/AboutSection";
+import PastEventsSlider from "@/components/PastEventsSlider";
+import Footer from "@/components/Footer";
+
+const primaryBtn: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  backgroundColor: "#e8a020",
+  color: "#000",
+  fontWeight: 700,
+  fontSize: 16,
+  padding: "20px 48px",
+  borderRadius: 999,
+  textDecoration: "none",
+  letterSpacing: "0.04em",
+};
+
+const secondaryBtn: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  backgroundColor: "rgba(255,255,255,0.08)",
+  border: "1.5px solid rgba(255,255,255,0.25)",
+  color: "#fff",
+  fontWeight: 700,
+  fontSize: 16,
+  padding: "20px 48px",
+  borderRadius: 999,
+  textDecoration: "none",
+  letterSpacing: "0.04em",
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      <div id="top" style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", background: "#000" }}>
+        <Navbar />
+
+        <div style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden" }}>
+          <img
+            src="/OBD_6323.jpg"
+            alt="Bowen Tech Week"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", opacity: 0.14 }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2), transparent)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(0,0,0,0.15), transparent, rgba(0,0,0,0.15))" }} />
+          <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: 600, height: 300, background: "rgba(232,160,32,0.10)", filter: "blur(120px)", borderRadius: "50%" }} />
+          <div style={{ position: "absolute", top: "50%", left: "25%", width: 300, height: 300, background: "rgba(26,101,255,0.10)", filter: "blur(100px)", borderRadius: "50%" }} />
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 300, background: "linear-gradient(to top, #000 0%, #000 20%, transparent 100%)", zIndex: 2 }} />
+        </div>
+
+        <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "120px 16px 60px" }}>
+
+          <div style={{ marginBottom: 16 }}>
+            <span style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.20)", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "8px 20px", borderRadius: 999, display: "inline-block" }}>
+              Bowen Tech Week 3.0
+            </span>
+          </div>
+
+          <div style={{ marginBottom: 40 }}>
+            <span style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.8)", fontSize: 14, padding: "8px 20px", borderRadius: 999, display: "inline-flex", alignItems: "center", gap: 8 }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#e8a020", display: "inline-block" }} />
+              27th April 2026
+            </span>
+          </div>
+
+          <h1 style={{ fontWeight: 900, lineHeight: 1, letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: 24, margin: "0 0 24px 0" }}>
+            <span style={{ display: "block", fontSize: "clamp(48px, 9vw, 130px)", color: "#fff" }}>
+              THE INTERSECTION
+            </span>
+            <span style={{ display: "block", fontSize: "clamp(48px, 9vw, 130px)", background: "linear-gradient(90deg, #f5c060 0%, #e8a020 60%, #d4911c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              ADVANTAGE
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p style={{ fontSize: "clamp(16px, 2vw, 22px)", fontWeight: 600, color: "#e8a020", margin: "24px 0 16px 0" }}>
+            Connect, Innovate, Intersect.
           </p>
+
+          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 15, maxWidth: 520, lineHeight: 1.7, margin: "0 0 56px 0" }}>
+            The most immersive university tech event in Nigeria. Days of powerful
+            keynotes, hands-on workshops, and transformational networking.
+          </p>
+
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 24 }}>
+            <Link href="/signup" style={primaryBtn}>
+              Get Your Tickets Now →
+            </Link>
+            <a href="#attendance" style={secondaryBtn}>
+              Explore The Event
+            </a>
+          </div>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+
+      <section id="attendance">
+        <AttendanceCount />
+      </section>
+
+      <div style={{ height: 80, background: "#000" }} />
+      <MarqueeBanner />
+      <div id="about"><AboutSection /></div>
+      <div id="memories"><PastEventsSlider /></div>
+      <Footer />
+    </>
   );
 }
