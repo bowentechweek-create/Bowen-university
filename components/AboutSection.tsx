@@ -3,6 +3,15 @@
 export default function AboutSection() {
   return (
     <section style={{ background: "#000", padding: "80px 24px 0" }}>
+      <style>{`
+        @media (max-width: 600px) {
+          .btw-about-grid { grid-template-columns: 1fr !important; }
+          .btw-about-image { grid-row: auto !important; min-height: 320px !important; }
+          .btw-schedule-label { display: none !important; }
+          .btw-schedule-content { padding: 32px 16px !important; }
+        }
+      `}</style>
+
       {/* Heading */}
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <h2 style={{
@@ -24,7 +33,7 @@ export default function AboutSection() {
         </h2>
 
         {/* Two-column grid */}
-        <div style={{
+        <div className="btw-about-grid" style={{
           display: "grid",
           gridTemplateColumns: "1fr 420px",
           gridTemplateRows: "auto auto",
@@ -33,7 +42,7 @@ export default function AboutSection() {
         }}>
 
           {/* Left: Large image card */}
-          <div style={{
+          <div className="btw-about-image" style={{
             position: "relative",
             borderRadius: 24,
             overflow: "hidden",
@@ -144,10 +153,10 @@ export default function AboutSection() {
         <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translateX(-50%)", width: 700, height: 400, background: "rgba(232,160,32,0.07)", filter: "blur(120px)", borderRadius: "50%", pointerEvents: "none" }} />
 
         {/* Content */}
-        <div style={{ position: "relative", zIndex: 2, width: "100%", display: "flex", alignItems: "stretch" }}>
+        <div className="btw-schedule-content" style={{ position: "relative", zIndex: 2, width: "100%", display: "flex", alignItems: "stretch" }}>
 
           {/* Rotated "Program Schedule" label */}
-          <div style={{
+          <div className="btw-schedule-label" style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
