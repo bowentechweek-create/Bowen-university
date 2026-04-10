@@ -67,11 +67,30 @@ export default function Home() {
             </span>
           </div>
 
-          <h1 style={{ fontWeight: 900, lineHeight: 1, letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: 24, margin: "0 0 24px 0" }}>
-            <span style={{ display: "block", fontSize: "clamp(48px, 9vw, 130px)", color: "#fff" }}>
+          <style>{`
+            @keyframes slideFromLeft {
+              from { opacity: 0; transform: translateX(-80px); }
+              to   { opacity: 1; transform: translateX(0); }
+            }
+            @keyframes slideFromRight {
+              from { opacity: 0; transform: translateX(80px); }
+              to   { opacity: 1; transform: translateX(0); }
+            }
+          `}</style>
+
+          <h1 style={{ fontWeight: 900, lineHeight: 1, letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: 24, margin: "0 0 24px 0", overflow: "hidden" }}>
+            <span style={{
+              display: "block", fontSize: "clamp(48px, 9vw, 130px)", color: "#fff",
+              animation: "slideFromLeft 0.9s cubic-bezier(0.22,1,0.36,1) both",
+            }}>
               THE INTERSECTION
             </span>
-            <span style={{ display: "block", fontSize: "clamp(48px, 9vw, 130px)", background: "linear-gradient(90deg, #f5c060 0%, #e8a020 60%, #d4911c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{
+              display: "block", fontSize: "clamp(48px, 9vw, 130px)",
+              background: "linear-gradient(90deg, #f5c060 0%, #e8a020 60%, #d4911c 100%)",
+              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+              animation: "slideFromRight 0.9s cubic-bezier(0.22,1,0.36,1) 0.15s both",
+            }}>
               ADVANTAGE
             </span>
           </h1>

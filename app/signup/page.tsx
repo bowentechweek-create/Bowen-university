@@ -4,17 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
-const faculties = [
-  "Agriculture",
-  "Arts & Humanities",
-  "Basic Medical Sciences",
-  "Clinical Sciences",
-  "Engineering & Technology",
-  "Law",
-  "Management & Social Sciences",
-  "Science & Science Education",
-  "Other",
-];
 
 const levels = ["100", "200", "300", "400", "500", "Postgraduate", "Staff"];
 
@@ -47,7 +36,6 @@ export default function SignupPage() {
     lastName: "",
     email: "",
     phone: "",
-    faculty: "",
     level: "",
     hearAbout: "",
   });
@@ -202,36 +190,20 @@ export default function SignupPage() {
                 />
               </div>
 
-              {/* Row: Faculty + Level */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                <div>
-                  <label style={labelStyle}>Faculty</label>
-                  <select
-                    required
-                    value={form.faculty}
-                    onChange={e => set("faculty", e.target.value)}
-                    onFocus={() => setFocused("faculty")}
-                    onBlur={() => setFocused(null)}
-                    style={{ ...focusStyle("faculty"), appearance: "none" as const }}
-                  >
-                    <option value="" disabled>Select faculty</option>
-                    {faculties.map(f => <option key={f} value={f} style={{ background: "#111", color: "#fff" }}>{f}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label style={labelStyle}>Level</label>
-                  <select
-                    required
-                    value={form.level}
-                    onChange={e => set("level", e.target.value)}
-                    onFocus={() => setFocused("level")}
-                    onBlur={() => setFocused(null)}
-                    style={{ ...focusStyle("level"), appearance: "none" as const }}
-                  >
-                    <option value="" disabled>Select level</option>
-                    {levels.map(l => <option key={l} value={l} style={{ background: "#111", color: "#fff" }}>{l}L</option>)}
-                  </select>
-                </div>
+              {/* Level */}
+              <div>
+                <label style={labelStyle}>Level</label>
+                <select
+                  required
+                  value={form.level}
+                  onChange={e => set("level", e.target.value)}
+                  onFocus={() => setFocused("level")}
+                  onBlur={() => setFocused(null)}
+                  style={{ ...focusStyle("level"), appearance: "none" as const }}
+                >
+                  <option value="" disabled>Select level</option>
+                  {levels.map(l => <option key={l} value={l} style={{ background: "#111", color: "#fff" }}>{l}L</option>)}
+                </select>
               </div>
 
               {/* How did you hear */}
