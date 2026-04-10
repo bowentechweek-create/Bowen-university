@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import AttendanceCount from "@/components/AttendanceCount";
 import MarqueeBanner from "@/components/MarqueeBanner";
+import HeroTitle from "@/components/HeroTitle";
 import AboutSection from "@/components/AboutSection";
 import PastEventsSlider from "@/components/PastEventsSlider";
 import Footer from "@/components/Footer";
@@ -67,18 +68,7 @@ export default function Home() {
             </span>
           </div>
 
-          <h1 style={{ fontWeight: 900, lineHeight: 1, letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: 24, margin: "0 0 24px 0" }}>
-            <span className="hero-slide-left" style={{ display: "block", fontSize: "clamp(48px, 9vw, 130px)", color: "#fff" }}>
-              THE INTERSECTION
-            </span>
-            <span className="hero-slide-right" style={{
-              display: "block", fontSize: "clamp(48px, 9vw, 130px)",
-              background: "linear-gradient(90deg, #f5c060 0%, #e8a020 60%, #d4911c 100%)",
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-            }}>
-              ADVANTAGE
-            </span>
-          </h1>
+          <HeroTitle />
 
           <p style={{ fontSize: "clamp(16px, 2vw, 22px)", fontWeight: 600, color: "#e8a020", margin: "24px 0 16px 0" }}>
             Connect, Innovate, Intersect.
