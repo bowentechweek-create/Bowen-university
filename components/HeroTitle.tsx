@@ -55,16 +55,16 @@ export default function HeroTitle() {
         </span>
 
         {/* Line 2 — slides up slightly later */}
-        <span className="hero-clip" style={{
-          fontSize: "clamp(48px, 9vw, 130px)",
-          background: "linear-gradient(90deg, #f5c060 0%, #e8a020 60%, #d4911c 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-        }}>
+        <span className="hero-clip" style={{ fontSize: "clamp(48px, 9vw, 130px)" }}>
           <span
             className={`hero-word${go ? " go" : ""}`}
-            style={{ animationDelay: "0.28s" }}
+            style={{
+              animationDelay: "0.28s",
+              background: "linear-gradient(90deg, #f5c060 0%, #e8a020 60%, #d4911c 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
           >
             ADVANTAGE
           </span>
