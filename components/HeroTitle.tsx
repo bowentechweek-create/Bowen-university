@@ -10,6 +10,8 @@ export default function HeroTitle() {
     return () => clearTimeout(t);
   }, []);
 
+  const entered = phase === "animate";
+
   return (
     <>
       <style>{`
@@ -27,63 +29,88 @@ export default function HeroTitle() {
           background-clip: text;
           animation: gradientFlow 4s ease-in-out infinite;
         }
+
+        .hero-row {
+          display: flex;
+          justify-content: center;
+          overflow: hidden;
+          width: 100%;
+          font-size: clamp(28px, 8.5vw, 130px);
+        }
+
+        .hero-half {
+          display: inline-block;
+          white-space: nowrap;
+          max-width: 50vw;
+        }
+
+        @media (max-width: 480px) {
+          .hero-row {
+            font-size: clamp(24px, 9.5vw, 60px);
+          }
+        }
       `}</style>
 
       <h1 style={{
         fontWeight: 900,
-        lineHeight: 1,
+        lineHeight: 1.1,
         letterSpacing: "-0.02em",
         textTransform: "uppercase",
         margin: "0 0 24px 0",
-        overflow: "hidden",
+        width: "100%",
+        textAlign: "center",
       }}>
 
         {/* Line 1: THE INTERSECTION */}
-        <span style={{ display: "flex", justifyContent: "center", fontSize: "clamp(48px, 9vw, 130px)", color: "#fff" }}>
-          <span style={{
-            display: "inline-block",
-            opacity: phase === "animate" ? 1 : 0,
-            transform: phase === "animate" ? "translateX(0)" : "translateX(-120vw)",
-            transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
-            whiteSpace: "nowrap",
-          }}>
+        <span className="hero-row" style={{ color: "#fff", marginBottom: "0.05em" }}>
+          <span
+            className="hero-half"
+            style={{
+              opacity: entered ? 1 : 0,
+              transform: entered ? "translateX(0)" : "translateX(-120vw)",
+              transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
+            }}
+          >
             THE INTER
           </span>
-          <span style={{
-            display: "inline-block",
-            opacity: phase === "animate" ? 1 : 0,
-            transform: phase === "animate" ? "translateX(0)" : "translateX(120vw)",
-            transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
-            whiteSpace: "nowrap",
-          }}>
+          <span
+            className="hero-half"
+            style={{
+              opacity: entered ? 1 : 0,
+              transform: entered ? "translateX(0)" : "translateX(120vw)",
+              transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
+            }}
+          >
             SECTION
           </span>
         </span>
 
         {/* Line 2: ADVANTAGE */}
-        <span style={{ display: "flex", justifyContent: "center", fontSize: "clamp(48px, 9vw, 130px)" }}>
-          <span style={{
-            display: "inline-block",
-            opacity: phase === "animate" ? 1 : 0,
-            transform: phase === "animate" ? "translateX(0)" : "translateX(-120vw)",
-            transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
-            whiteSpace: "nowrap",
-          }}>
-            {phase === "animate"
+        <span className="hero-row">
+          <span
+            className="hero-half"
+            style={{
+              opacity: entered ? 1 : 0,
+              transform: entered ? "translateX(0)" : "translateX(-120vw)",
+              transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
+            }}
+          >
+            {entered
               ? "ADVAN".split("").map((char, i) => (
                   <span key={i} className="gradient-letter" style={{ animationDelay: `${i * 0.08}s` }}>{char}</span>
                 ))
               : <span style={{ background: "linear-gradient(90deg, #f5c060, #e8a020)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>ADVAN</span>
             }
           </span>
-          <span style={{
-            display: "inline-block",
-            opacity: phase === "animate" ? 1 : 0,
-            transform: phase === "animate" ? "translateX(0)" : "translateX(120vw)",
-            transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
-            whiteSpace: "nowrap",
-          }}>
-            {phase === "animate"
+          <span
+            className="hero-half"
+            style={{
+              opacity: entered ? 1 : 0,
+              transform: entered ? "translateX(0)" : "translateX(120vw)",
+              transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
+            }}
+          >
+            {entered
               ? "TAGE".split("").map((char, i) => (
                   <span key={i} className="gradient-letter" style={{ animationDelay: `${(i + 5) * 0.08}s` }}>{char}</span>
                 ))
