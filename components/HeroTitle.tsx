@@ -6,7 +6,7 @@ export default function HeroTitle() {
   const [phase, setPhase] = useState<"enter" | "animate">("enter");
 
   useEffect(() => {
-    const t = setTimeout(() => setPhase("animate"), 2800);
+    const t = setTimeout(() => setPhase("animate"), 3000);
     return () => clearTimeout(t);
   }, []);
 
@@ -18,14 +18,6 @@ export default function HeroTitle() {
           50% { background-position: 100% center; }
           100% { background-position: 0% center; }
         }
-        @keyframes wave {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-14px); }
-        }
-        .wave-letter {
-          display: inline-block;
-          animation: wave 2s ease-in-out infinite;
-        }
         .gradient-letter {
           display: inline-block;
           background: linear-gradient(90deg, #f5c060, #e8a020, #d4911c, #fff8e7, #f5c060, #e8a020);
@@ -33,7 +25,7 @@ export default function HeroTitle() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          animation: wave 2s ease-in-out infinite, gradientFlow 4s ease-in-out infinite;
+          animation: gradientFlow 4s ease-in-out infinite;
         }
       `}</style>
 
@@ -47,43 +39,35 @@ export default function HeroTitle() {
       }}>
 
         {/* Line 1: THE INTERSECTION */}
-        <span style={{ display: "flex", justifyContent: "center", fontSize: "clamp(28px, 7.5vw, 130px)", color: "#fff" }}>
+        <span style={{ display: "flex", justifyContent: "center", fontSize: "clamp(48px, 9vw, 130px)", color: "#fff" }}>
           <span style={{
             display: "inline-block",
             opacity: phase === "animate" ? 1 : 0,
             transform: phase === "animate" ? "translateX(0)" : "translateX(-120vw)",
-            transition: "transform 2s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
+            transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
+            whiteSpace: "nowrap",
           }}>
-            {phase === "animate"
-              ? "THE INTER".split("").map((char, i) => (
-                  <span key={i} className="wave-letter" style={{ animationDelay: `${i * 0.06}s`, whiteSpace: char === " " ? "pre" : "normal" }}>{char}</span>
-                ))
-              : "THE INTER"
-            }
+            THE INTER
           </span>
-
           <span style={{
             display: "inline-block",
             opacity: phase === "animate" ? 1 : 0,
             transform: phase === "animate" ? "translateX(0)" : "translateX(120vw)",
-            transition: "transform 2s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
+            transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
+            whiteSpace: "nowrap",
           }}>
-            {phase === "animate"
-              ? "SECTION".split("").map((char, i) => (
-                  <span key={i} className="wave-letter" style={{ animationDelay: `${(i + 9) * 0.06}s` }}>{char}</span>
-                ))
-              : "SECTION"
-            }
+            SECTION
           </span>
         </span>
 
         {/* Line 2: ADVANTAGE */}
-        <span style={{ display: "flex", justifyContent: "center", fontSize: "clamp(28px, 7.5vw, 130px)" }}>
+        <span style={{ display: "flex", justifyContent: "center", fontSize: "clamp(48px, 9vw, 130px)" }}>
           <span style={{
             display: "inline-block",
             opacity: phase === "animate" ? 1 : 0,
             transform: phase === "animate" ? "translateX(0)" : "translateX(-120vw)",
-            transition: "transform 2s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
+            transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
+            whiteSpace: "nowrap",
           }}>
             {phase === "animate"
               ? "ADVAN".split("").map((char, i) => (
@@ -92,12 +76,12 @@ export default function HeroTitle() {
               : <span style={{ background: "linear-gradient(90deg, #f5c060, #e8a020)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>ADVAN</span>
             }
           </span>
-
           <span style={{
             display: "inline-block",
             opacity: phase === "animate" ? 1 : 0,
             transform: phase === "animate" ? "translateX(0)" : "translateX(120vw)",
-            transition: "transform 2s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
+            transition: "transform 2.5s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
+            whiteSpace: "nowrap",
           }}>
             {phase === "animate"
               ? "TAGE".split("").map((char, i) => (
