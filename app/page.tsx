@@ -37,7 +37,7 @@ const secondaryBtn: React.CSSProperties = {
 export default function Home() {
   return (
     <>
-      <div id="top" style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", background: "#000" }}>
+      <div id="top" style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", background: "#000", overflow: "hidden" }}>
         <Navbar />
 
         <div style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden" }}>
@@ -53,7 +53,7 @@ export default function Home() {
           <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 300, background: "linear-gradient(to top, #000 0%, #000 20%, transparent 100%)", zIndex: 2 }} />
         </div>
 
-        <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "clamp(80px, 12vw, 120px) clamp(16px, 5vw, 48px) 60px" }}>
+        <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "clamp(110px, 12vw, 140px) clamp(16px, 5vw, 48px) 60px" }}>
 
           <div style={{ marginBottom: 16 }}>
             <span style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.20)", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "8px 20px", borderRadius: 999, display: "inline-block" }}>
