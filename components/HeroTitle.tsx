@@ -1,8 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function HeroTitle() {
-  const line1 = "THE INTERSECTION";
-  const line2 = "ADVANTAGE";
+  const [phase, setPhase] = useState<"enter" | "animate">("enter");
+
+  useEffect(() => {
+    const t = setTimeout(() => setPhase("animate"), 2800);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <>
@@ -37,30 +43,71 @@ export default function HeroTitle() {
         letterSpacing: "-0.02em",
         textTransform: "uppercase",
         margin: "0 0 24px 0",
+        overflow: "hidden",
       }}>
-        <span style={{ display: "block", fontSize: "clamp(32px, 9vw, 130px)", lineHeight: 1.1, color: "#fff", wordBreak: "break-word" }}>
-          {line1.split("").map((char, i) => (
-            <span
-              key={i}
-              className="wave-letter"
-              style={{ animationDelay: `${i * 0.06}s`, whiteSpace: char === " " ? "pre" : "normal" }}
-            >
-              {char}
-            </span>
-          ))}
+
+        {/* Line 1: THE INTERSECTION */}
+        <span style={{ display: "flex", justifyContent: "center", fontSize: "clamp(28px, 7.5vw, 130px)", color: "#fff" }}>
+          <span style={{
+            display: "inline-block",
+            opacity: phase === "animate" ? 1 : 0,
+            transform: phase === "animate" ? "translateX(0)" : "translateX(-120vw)",
+            transition: "transform 2s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
+          }}>
+            {phase === "animate"
+              ? "THE INTER".split("").map((char, i) => (
+                  <span key={i} className="wave-letter" style={{ animationDelay: `${i * 0.06}s`, whiteSpace: char === " " ? "pre" : "normal" }}>{char}</span>
+                ))
+              : "THE INTER"
+            }
+          </span>
+
+          <span style={{
+            display: "inline-block",
+            opacity: phase === "animate" ? 1 : 0,
+            transform: phase === "animate" ? "translateX(0)" : "translateX(120vw)",
+            transition: "transform 2s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease",
+          }}>
+            {phase === "animate"
+              ? "SECTION".split("").map((char, i) => (
+                  <span key={i} className="wave-letter" style={{ animationDelay: `${(i + 9) * 0.06}s` }}>{char}</span>
+                ))
+              : "SECTION"
+            }
+          </span>
         </span>
 
-        <span style={{ display: "block", fontSize: "clamp(32px, 9vw, 130px)", lineHeight: 1.1, wordBreak: "break-word" }}>
-          {line2.split("").map((char, i) => (
-            <span
-              key={i}
-              className="gradient-letter"
-              style={{ animationDelay: `${i * 0.08}s` }}
-            >
-              {char}
-            </span>
-          ))}
+        {/* Line 2: ADVANTAGE */}
+        <span style={{ display: "flex", justifyContent: "center", fontSize: "clamp(28px, 7.5vw, 130px)" }}>
+          <span style={{
+            display: "inline-block",
+            opacity: phase === "animate" ? 1 : 0,
+            transform: phase === "animate" ? "translateX(0)" : "translateX(-120vw)",
+            transition: "transform 2s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
+          }}>
+            {phase === "animate"
+              ? "ADVAN".split("").map((char, i) => (
+                  <span key={i} className="gradient-letter" style={{ animationDelay: `${i * 0.08}s` }}>{char}</span>
+                ))
+              : <span style={{ background: "linear-gradient(90deg, #f5c060, #e8a020)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>ADVAN</span>
+            }
+          </span>
+
+          <span style={{
+            display: "inline-block",
+            opacity: phase === "animate" ? 1 : 0,
+            transform: phase === "animate" ? "translateX(0)" : "translateX(120vw)",
+            transition: "transform 2s cubic-bezier(0.16,1,0.3,1) 0.3s, opacity 0.6s ease 0.3s",
+          }}>
+            {phase === "animate"
+              ? "TAGE".split("").map((char, i) => (
+                  <span key={i} className="gradient-letter" style={{ animationDelay: `${(i + 5) * 0.08}s` }}>{char}</span>
+                ))
+              : <span style={{ background: "linear-gradient(90deg, #e8a020, #d4911c)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>TAGE</span>
+            }
+          </span>
         </span>
+
       </h1>
     </>
   );

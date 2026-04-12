@@ -120,8 +120,8 @@ export default function SignupPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p style={{ color: "#fff", fontWeight: 800, fontSize: 22, marginBottom: 10 }}>{"You're in!"}</p>
-              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 14, marginBottom: 32 }}>{message}</p>
+              <p style={{ color: "#fff", fontWeight: 800, fontSize: 22, marginBottom: 10 }}>{"Check your email!"}</p>
+              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 14, marginBottom: 32 }}>Your ticket has been sent — check your inbox or spam folder.</p>
               <Link href="/" style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 background: "#e8a020", color: "#000", fontWeight: 700, fontSize: 14,

@@ -13,8 +13,8 @@ const primaryBtn: React.CSSProperties = {
   backgroundColor: "#e8a020",
   color: "#000",
   fontWeight: 700,
-  fontSize: 16,
-  padding: "20px 48px",
+  fontSize: "clamp(13px, 2vw, 16px)",
+  padding: "clamp(12px, 2vw, 20px) clamp(24px, 4vw, 48px)",
   borderRadius: 999,
   textDecoration: "none",
   letterSpacing: "0.04em",
@@ -27,8 +27,8 @@ const secondaryBtn: React.CSSProperties = {
   border: "1.5px solid rgba(255,255,255,0.25)",
   color: "#fff",
   fontWeight: 700,
-  fontSize: 16,
-  padding: "20px 48px",
+  fontSize: "clamp(13px, 2vw, 16px)",
+  padding: "clamp(12px, 2vw, 20px) clamp(24px, 4vw, 48px)",
   borderRadius: 999,
   textDecoration: "none",
   letterSpacing: "0.04em",
@@ -53,7 +53,7 @@ export default function Home() {
           <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 300, background: "linear-gradient(to top, #000 0%, #000 20%, transparent 100%)", zIndex: 2 }} />
         </div>
 
-        <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "120px 16px 60px" }}>
+        <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "clamp(80px, 12vw, 120px) clamp(16px, 5vw, 48px) 60px" }}>
 
           <div style={{ marginBottom: 16 }}>
             <span style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.20)", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "8px 20px", borderRadius: 999, display: "inline-block" }}>
