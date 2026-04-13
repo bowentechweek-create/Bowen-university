@@ -1,14 +1,8 @@
 import { supabase } from "@/lib/supabase";
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 function ticketEmail(firstName: string, email: string, faculty: string, level: string) {
   return `<!DOCTYPE html>
@@ -165,16 +159,15 @@ export async function POST(req: NextRequest) {
   }
 
   // Send ticket email
-  try {
-    await transporter.sendMail({
-      from: `"Bowen Tech Week" <${process.env.GMAIL_USER}>`,
-      to: email,
-      subject: "Your Ticket to Bowen Tech Week 3.0 is Confirmed!",
-      html: ticketEmail(firstName, email, faculty, level),
-      text: `Hi ${firstName},\n\nYour spot at Bowen Tech Week 3.0 is confirmed!\n\nDate: 27th April 2026\nVenue: Bowen University\nAttendee: ${firstName}\nEmail: ${email}\n\nGet ready for powerful keynotes, hands-on workshops, and transformational networking.\n\n— Bowen Tech Week Team`,
-    });
-  } catch (emailError) {
-    console.error("Email send error:", emailError);
+  const { error: emailError } = await resend.emails.send({
+    from: "Bowen Tech Week <onboarding@resend.dev>",
+    to: email,
+    subject: "Your Ticket to Bowen Tech Week 3.0 is Confirmed!",
+    html: ticketEmail(firstName, email, faculty, level),
+  });
+
+  if (emailError) {
+    console.error("Resend error:", emailError);
   }
 
   return NextResponse.json({ success: true });
